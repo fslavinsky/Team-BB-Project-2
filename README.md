@@ -1,0 +1,2 @@
+Hello all,
+To keep things organized, everyone should push code *exculusively* to their own branch-- no files other than this README.md should be in the main branch. This way, class names can be the exact same for the two implementations of each role w/o code getting mixed up or written over. That's all I have to say. If anyone has anything to add feel free to edit and push this document... otherwise we communicate through teams for the most part anyways.
