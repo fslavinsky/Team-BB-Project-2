@@ -11,8 +11,11 @@ import java.util.Random;
 import org.junit.Test;
 
 /**
- * @author fslav
- *
+ * This class contains Junit5 tests for the classes BackEndRBT.java, FrontEndRBT.java, and
+ * DataWrangle.java. Tests for each class are contained in a respective method. In each test method,
+ * each method for the respective class is tested.
+ * 
+ * @author Frank Slavinsky
  */
 public class TestSuiteRBT {
 
@@ -24,23 +27,26 @@ public class TestSuiteRBT {
   @Test
   public void testFrontEnd() {
     // test help command
-    // if (FrontEndRBT.help() == null)
-    // fail("FE 'help' failed to print list of valid commands.");
-    // // test insert command
-    // if (!FrontEndRBT.insert("Gala Apple", "US Fruit Comp.", "Produce", 12)
-    // .contentEquals("CONFIRMATION MESSAGE"))
-    // fail("FE 'insert' failed to print confirmation msg. Key-value paird should have been
-    // added.");
-    // if (!FrontEndRBT.insert("Granny Smith", "US Fruit Comp.", "Produce", 12)
-    // .contentEquals("ERROR MESSAGE"))
-    // fail("FE 'insert' failed to print error msg. Key-value pair should not have been added.");
-    // // test search command
-    // if (!FrontEndRBT.search(12).contentEquals("NODE CONTENTS"))
-    // fail("FE 'search' failed to print contents of node. " + FrontEndRBT.search(12)
-    // + " returned instead.");
-    // if (!FrontEndRBT.search(11).contentEquals("ERROR MESSAGE"))
-    // fail("FE 'search' failed to print error msg. " + FrontEndRBT.search(11)
-    // + " returned instead.");
+    if (FrontEndRBT.help() == null)
+      fail("FE 'help' failed to print list of valid commands.");
+
+    // test insert command
+    String insertConfirmMsg = "CONFIRM MESSAGE"; // TODO find this message
+    String insertErrorMsg = "ERROR MESSAGE";
+    if (!FrontEndRBT.insert("Gala Apple", "US Fruit Comp.", "Produce", 12)
+        .contentEquals(insertConfirmMsg))
+      fail("FE 'insert' failed to print confirmation msg. Key-value paird should have been added.");
+    if (!FrontEndRBT.insert("Gala Apple", "US Fruit Comp.", "Produce", 12)
+        .contentEquals(insertErrorMsg))
+      fail("FE 'insert' failed to print error msg. Key-value pair should not have been added.");
+    
+    // test search command
+    if (!FrontEndRBT.search(12).contentEquals("NODE CONTENTS"))
+      fail("FE 'search' failed to print contents of node. " + FrontEndRBT.search(12)
+          + " returned instead.");
+    if (!FrontEndRBT.search(11).contentEquals("ERROR MESSAGE"))
+      fail("FE 'search' failed to print error msg. " + FrontEndRBT.search(11)
+          + " returned insStead.");
   }
 
   /**
@@ -57,7 +63,7 @@ public class TestSuiteRBT {
 
   /**
    * This method tests the functionality of BackEndRBT, specifically the createTree, insert,
-   * grocerListToString, and getItem methods. 
+   * grocerListToString, and getItem methods.
    */
   @Test
   public void testBackEndRBT() {
@@ -101,8 +107,8 @@ public class TestSuiteRBT {
       Integer randomInt = random.nextInt(100000000) + 1;
       GroceryItem dummy = new GroceryItem("dummy", "dummy", "dummy", randomInt);
       try {
-      BackEndRBT.insert(dummy);
-      } catch(IllegalArgumentException e) {
+        BackEndRBT.insert(dummy);
+      } catch (IllegalArgumentException e) {
         // random selection of int for UPC resulted in repeated value, ignore for purpose of test
       }
       if (!BackEndRBT.getItem(randomInt).equals(dummy))
