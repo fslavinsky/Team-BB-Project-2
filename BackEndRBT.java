@@ -32,7 +32,7 @@ public class BackEndRBT {
 		if (csvFileLocation.equals("empty")) { // checks for matching key-word
 			tree = new RedBlackTree<GroceryItem>();
 		} else { // calls DataWrangleRBT.writeCSV to initialize with file at location specified
-			tree = DataWrangleRBT.writeCSV(csvFileLocation);
+			//tree = DataWrangleRBT.writeCSV(csvFileLocation); TODO uncomment this
 		}
 	}
 
@@ -50,7 +50,7 @@ public class BackEndRBT {
 	 * 
 	 * @return String representation of data from all GroceryItems in tree.
 	 */
-	protected static String GroceryListToString() {
+	protected static String groceryListToString() {
 		return tree.toString();
 	}
 
