@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  */
 public class DataWrangleRBT {
-  private static RedBlackTree<GroceryItem> tree; // private class variable of Red Black Tree
+  protected static RedBlackTree<GroceryItem> tree; // private class variable of Red Black Tree
 
   /**
    * Constructor that initiates a new Red Black Tree with nodes of GroceryItem
