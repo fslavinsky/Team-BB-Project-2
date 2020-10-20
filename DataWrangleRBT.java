@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DataWrangleRBT {
     // private class variable of Red Black Tree
-    private static RedBlackTree<GroceryItem> rbTree = new RedBlackTree<GroceryItem>();
+    protected static RedBlackTree<GroceryItem> rbTree = new RedBlackTree<GroceryItem>();
 
     // Constructor
     public DataWrangleRBT() {}
@@ -71,4 +71,3 @@ public class DataWrangleRBT {
     }
 
 }
-
