@@ -87,7 +87,7 @@ public class FrontEndRBT {
    * @return the grocery item as a string if it exists
    */
   public static String search(int UPC) {
-    if (BackEndRBT.getItem(UPC).toString() == null) {// checks if item exists
+    if (BackEndRBT.getItem(UPC) == null) {// checks if item exists
       return "There is no item on the list using that UPC";
     } else {
       return BackEndRBT.getItem(UPC).toString();
@@ -107,8 +107,8 @@ public class FrontEndRBT {
     GroceryItem newItem = new GroceryItem(name, brand, dept, UPC);// creates new object
     try {// try block
       BackEndRBT.insert(newItem);// try to insert new object
-    } catch (NullPointerException e) {// catch if error
-      return "The program threw a NullPointerException";
+    } catch (IllegalArgumentException e) {// catch if error
+      return "This item already exists in your list!";
     }
     return "Succesfully add " + newItem.toString() + " to the grocery list.";
 
