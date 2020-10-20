@@ -151,7 +151,7 @@ public class FrontEndRBT {
             "Please input the file path of the csv file you would like to scan for the grocery list.");
         String filePath = scnr.nextLine().trim();// scanner for file path
         BackEndRBT.createTree(filePath);// calls BackEndRBT to implement the RBT from CSV
-        if (data != null) {// if implemented exit
+        if (BackEndRBT.tree != null) {// if implemented exit
           inputRBT = true;// change checker
         }
         if (data == null) {// if it did not work
