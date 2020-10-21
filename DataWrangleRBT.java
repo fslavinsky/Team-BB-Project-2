@@ -45,7 +45,7 @@ public class DataWrangleRBT {
       // read the file line by line
       String line = br.readLine(); // clears out the line with column titles
 
-      while (line != null) {
+      while ((line = br.readLine()) != null) {
         // convert line into tokens
         String[] tokens = line.split(DELIMITER);
         GroceryItem item =
@@ -58,7 +58,6 @@ public class DataWrangleRBT {
                                                                                            // given
                                                                                            // information
         tree.insert(item);; // Insert item into Red Black Tree
-        line = br.readLine();
       }
 
       // close the reader
